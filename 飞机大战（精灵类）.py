@@ -16,7 +16,7 @@ class HeroPlane(pygame.sprite.Sprite):
         # 创建矩形对象
         self.rect = self.image.get_rect()
         # 设置矩形对象初始坐标
-        self.rect.top, self.rect.left = [700, 136]
+        self.rect.top, self.rect.left = [600, 136]
         # 飞机的速度
         self.speed = 3
         # 窗体赋值
@@ -54,6 +54,7 @@ class HeroPlane(pygame.sprite.Sprite):
             self.rect.top = 0.01
         if self.rect.top >= 700:
             self.rect.top = 700
+
 
     def update(self):
         # 重新调用两个方法，刷新一下此类方法，就算是更新了
@@ -260,7 +261,7 @@ class gamesound(object):
 
 class Manager(object):
     # 窗口的大小
-    bg_size = (400, 800)
+    bg_size = (400, 700)
     # 创建敌机定时器的id
     create_enemy_id = 10
     # 游戏结束 倒计时id
@@ -274,7 +275,7 @@ class Manager(object):
         # pygame.init的初始化，不加上会报错
         pygame.init()
         # 创建窗口
-        self.screen = pygame.display.set_mode((400, 800), 0, 32)
+        self.screen = pygame.display.set_mode((400, 700), 0, 32)
         # 创建背景图片
         self.background = pygame.image.load("素材\\图片\\1.jpg")
         # 初始化一个装玩家精灵的group
@@ -347,7 +348,7 @@ class Manager(object):
 
     def main(self):
         # # 播放音乐
-        # self.sound.playbackgroundmusic()
+        self.sound.playbackgroundmusic()
         # 创建一个玩家
         self.new_player()
         # 开启创建敌机的定时器
